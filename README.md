@@ -1,4 +1,11 @@
-# Base layout template with Gulp, SCSS and Stylelint
-1. Create a repo using this template
-1. Replace `<your_account>` and `<repo_name>` with your Github username and the new repo name
-    - [DEMO LINK](https://romanhrytsiuk.github.io/JS-2048/)
+JS 2048 - Landing page
+
+The project was created using:
+
+HTML5 CSS3 (SCSS) but mainly Javascript
+
+Here were used such techniques as event handling,
+DOM manipulation, conditional statements and loops,
+random number generation, working with arrays and others
+
+[DEMO LINK](https://romanhrytsiuk.github.io/JS-2048/)
