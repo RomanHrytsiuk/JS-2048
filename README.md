@@ -9,3 +9,4 @@ DOM manipulation, conditional statements and loops,
 random number generation, working with arrays and others
 
 [DEMO LINK](https://romanhrytsiuk.github.io/JS-2048/)
+[JS 2048 Layout](https://github.com/RomanHrytsiuk/JS-2048/)
