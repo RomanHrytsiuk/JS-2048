@@ -73,7 +73,7 @@ document.addEventListener('keydown', (e) => {
       return slideDown();
   }
 
-  document.querySelector('.game-score').innerText = score;
+  document.querySelector('.game-score').textContent = score;
 
   if (gameIsOver()) {
     loseMessage.classList.remove('hidden');
@@ -138,7 +138,7 @@ function hasEmptyFieldCell() {
 }
 
 function addRandomCell() {
-  if (!hasEmptyFieldCell) {
+  if (!hasEmptyFieldCell()) {
     return;
   }
 
@@ -310,7 +310,7 @@ function gameIsOver() {
     }
   }
 
-  return move && hasNoEmptyCells;
+  return move || !hasNoEmptyCells;
 }
 
 function isWinner() {
