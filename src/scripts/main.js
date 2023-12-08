@@ -5,6 +5,7 @@ const startButton = document.querySelector('.start'); // 37, 72-73, 124-125
 const startMessage = document.querySelector('.message-start');
 const loseMessage = document.querySelector('.message-lose');
 const winMessage = document.querySelector('.message-win');
+const gameScore = document.querySelector('.game-score');
 
 let gameStarted = false;
 let score = 0;
@@ -28,6 +29,9 @@ function setGame() {
     [0, 0, 0, 0],
     [0, 0, 0, 0],
   ];
+
+  score = 0;
+  gameScore.innerText = score;
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
@@ -73,11 +77,7 @@ document.addEventListener('keydown', (e) => {
       return slideDown();
   }
 
-  document.querySelector('.game-score').textContent = score;
-
-  if (gameIsOver()) {
-    loseMessage.classList.remove('hidden');
-  }
+  gameScore.innerText = score;
 
   if (isWinner()) {
     winMessage.classList.remove('hidden');
@@ -184,6 +184,8 @@ function slide(row) {
       newRow[i] *= 2;
       newRow[i + 1] = 0;
       score += newRow[i];
+
+      gameScore.innerText = score;
     }
   }
 
@@ -245,6 +247,10 @@ function slideLeftAndRight(direction) {
   if (isAnyCellMoved) {
     addRandomCell();
   }
+
+  if (gameIsOver()) {
+    loseMessage.classList.remove('hidden');
+  }
 }
 
 function slideUpAndDown(direction) {
@@ -280,6 +286,10 @@ function slideUpAndDown(direction) {
   if (isAnyCellMoved) {
     addRandomCell();
   }
+
+  if (gameIsOver()) {
+    loseMessage.classList.remove('hidden');
+  }
 }
 
 function gameIsOver() {
@@ -310,7 +320,7 @@ function gameIsOver() {
     }
   }
 
-  return move || !hasNoEmptyCells;
+  return move && hasNoEmptyCells;
 }
 
 function isWinner() {
